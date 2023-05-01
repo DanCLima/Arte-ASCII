@@ -36,7 +36,7 @@ void img_name(char *name, char *in, char *out, int tp)
     if (p)
         *p = 0;
     sprintf(in, "%s%s", name, ext[tp - 1]);
-    sprintf(out, "%s-result%s", name, ext[tp - 1]);
+    sprintf(out, "result%s", ext[tp - 1]);      // Removi a variável name para que a imagem final já seja nomeada como result.pgm
 }
 
 /*-------------------------------------------------------------------------
@@ -55,7 +55,7 @@ void img_info(char *name, int nr, int nc, int ml, int tp)
     printf("Image type..................: P%d\n", tp);
     printf("Number of rows..............: %d \n", nr);
     printf("Number of columns...........: %d \n", nc);
-    printf("Max intensity level.........: %d \n\n", ml);
+    printf("Max intensity level.........: %d \n", ml);
 }
 
 /*-------------------------------------------------------------------------
@@ -142,7 +142,7 @@ void img_put(image img, char *name, int nr, int nc, int ml, int tp)
 {
     int count;
     FILE *fimg;
-    ERROR((fimg = fopen(name, "wt")) == NULL, errormsg("Image creation error: <%s>", name));
+    ERROR((fimg = fopen("result.pgm", "wt")) == NULL, errormsg("Image creation error: <result>"));  //removi o parâmetro name e coloquei a string "result.pgm"
     fprintf(fimg, "P%c\n", tp + '0');
     fputs(CREATOR, fimg);
     fprintf(fimg, "%d  %d\n", nc, nr);
@@ -164,7 +164,7 @@ void img_put(image img, char *name, int nr, int nc, int ml, int tp)
             fprintf(fimg, "%3d %3d %3d ", r, g, b);
         }
         count++;
-        if (count > PER_LINE)
+        if (count > nc) // Alterei o PER_LINE para nc, para que a imagem resultado já esteja formatada 
         {
             fprintf(fimg, "\n");
             count = 0;
