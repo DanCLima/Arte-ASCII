@@ -88,8 +88,6 @@ void copiaArq (char *name, int nc) {
     fclose(file2);
 }
 
-//comando ascii cao.pgm 100 30 "@$#*%o!=+;:~-,. "
-
 /*-----------------------------------------------------------------------------------
 *   Função que realiza o mapeamento dos tons de cinza para cada caracter informado 
 *   na lista de argumentos da chamada do programa.
