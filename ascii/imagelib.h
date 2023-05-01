@@ -1,3 +1,13 @@
+/*---------------------------------------------------------------+
+|            UNIFAL - Universidade Federal de Alfenas            |
+|              BACHARELADO EM CIÊNCIA DA COMPUTAÇÃO              |
+|       Trabalho....:   Imagem ASCII                             |
+|       Disciplina..:   Processamento de Imagens                 |
+|       Professor...:   Luiz Eduardo da Silva                    |
+|       Aluno.......:   Daniel da Costa Lima                     |
+|       Data........:   01/05/2023                               |
++----------------------------------------------------------------*/
+
 #define CREATOR "# CREATOR: Image Processing using C-Ansi - ByDu\n"
 
 typedef int *image;

@@ -1,3 +1,13 @@
+/*---------------------------------------------------------------+
+|            UNIFAL - Universidade Federal de Alfenas            |
+|              BACHARELADO EM CIÊNCIA DA COMPUTAÇÃO              |
+|       Trabalho....:   Imagem ASCII                             |
+|       Disciplina..:   Processamento de Imagens                 |
+|       Professor...:   Luiz Eduardo da Silva                    |
+|       Aluno.......:   Daniel da Costa Lima                     |
+|       Data........:   01/05/2023                               |
++----------------------------------------------------------------*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -36,7 +46,7 @@ void img_name(char *name, char *in, char *out, int tp)
     if (p)
         *p = 0;
     sprintf(in, "%s%s", name, ext[tp - 1]);
-    sprintf(out, "result%s", ext[tp - 1]);      // Removi a variável name para que a imagem final já seja nomeada como result.pgm
+    sprintf(out, "result%s", ext[tp - 1]);      // Variável name removida. Dessa forma, a imagem final será nomeada como "result.pgm"
 }
 
 /*-------------------------------------------------------------------------
@@ -50,7 +60,7 @@ void img_name(char *name, char *in, char *out, int tp)
 void img_info(char *name, int nr, int nc, int ml, int tp)
 {
     printf("\nImage Informations:");
-    printf("\n--------------------------\n");
+    printf("\n-----------------------------\n");
     printf("Image file name.............: %s \n", name);
     printf("Image type..................: P%d\n", tp);
     printf("Number of rows..............: %d \n", nr);
@@ -142,7 +152,7 @@ void img_put(image img, char *name, int nr, int nc, int ml, int tp)
 {
     int count;
     FILE *fimg;
-    ERROR((fimg = fopen("result.pgm", "wt")) == NULL, errormsg("Image creation error: <result>"));  //removi o parâmetro name e coloquei a string "result.pgm"
+    ERROR((fimg = fopen("result.pgm", "wt")) == NULL, errormsg("Image creation error: <result>"));  // Parâmetro "name" substituído pela string "result.pgm"
     fprintf(fimg, "P%c\n", tp + '0');
     fputs(CREATOR, fimg);
     fprintf(fimg, "%d  %d\n", nc, nr);
@@ -164,7 +174,7 @@ void img_put(image img, char *name, int nr, int nc, int ml, int tp)
             fprintf(fimg, "%3d %3d %3d ", r, g, b);
         }
         count++;
-        if (count > nc) // Alterei o PER_LINE para nc, para que a imagem resultado já esteja formatada 
+        if (count > nc) // Substituição do "PER_LINE" por "nc". Assim, a imagem sairá formatada de acordo com a quantidade de coluans 
         {
             fprintf(fimg, "\n");
             count = 0;
