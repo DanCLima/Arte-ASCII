@@ -75,12 +75,12 @@ void copiaArq (char *name, int nc) {
 
     while (fscanf(file1, "%d", &n) == 1) {      // Lê um valor no arquivo, armazena na variável "n" e retorna 1. Caso não consiga ler algum valor, retorna 0
         if (i == nc){     // Quebra de linha de acordo com a quantidade de colunas (semelhante a função img_put)
-            fprintf(file2, "%c ", '\n');
+            fprintf(file2, "%c", '\n');
             i = 0;
         }
         
         caracter = (char)n;     // A variável do tipo char recebe a variável do tipo int convertida para char
-        fprintf(file2, "%c ", caracter);
+        fprintf(file2, "%c", caracter);
         i++;
     }
 
